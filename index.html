@@ -6,25 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Leckerli+One&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mystery+Quest&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Leckerli+One&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mystery+Quest&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <main>
-        <div class="container">
-            <!-- <div class="etch-grid-row">
-                <div class="etch-grid">
-                </div>
-                <div class="etch-grid">
-                </div>
-                <div class="etch-grid">
-                </div>
-                <div class="etch-grid">
-                </div>
-                <div class="etch-grid">
-                </div>
-                <div class="etch-grid">
-                </div>
-            </div> -->
+        <div class="etch-a-sketch">
+            <span class="leckerli-one">- Etch-A-Sketch -</span>
+            <div class="container">
+            </div>
+            <div class="knob-wrapper">
+                <div class="knob knob-left"></div>
+                <div class="knob knob-right"></div>
+            </div>
+        </div>
+        <div class="etch-controls-wrapper">
+            <div class="etch-label-btn-wrapper">
+                <label for="">Enter Your Desired Grid Size (Max 100)</label>
+                <input type="text">
+            </div>
+            <div class="etch-label-btn-wrapper">
+                <label for="">Click to Toggle <br>Black/Random Colors</label>
+                <button>To Black</button>
+            </div>
+            <div class="etch-label-btn-wrapper">
+                <label for="">Click For <br>Progressive Darkening</label>
+                <button>Off</button>
+            </div>
+            <div class="etch-label-btn-wrapper">
+                <label for="">Click To Reset</label>
+                <button>Off</button>
+            </div>
         </div>
     </main>
     <script src="/js/main.js"></script>
