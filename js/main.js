@@ -71,7 +71,7 @@ function createUserGrid() {
 };
 
 
-// Start Button Event Listener
+// User Creates Grid Start Button Event Listener
 startBtn.addEventListener('click' , () => {
     let userGridInput = Number (document.querySelector('#userGridInput').value)
     // Less than 100 Grids + Correct Input Filter 
@@ -86,4 +86,6 @@ startBtn.addEventListener('click' , () => {
     
 });
 
+
+// Toggle Random Colors 
 
