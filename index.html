@@ -31,8 +31,11 @@
         </div>
         <div class="etch-controls-wrapper">
             <div class="etch-label-btn-wrapper">
-                <label for="">Enter Your Desired Grid Size (Max 100)</label>
-                <input type="text">
+                <label for="">Enter Your Desired Grid Size (Default 16/Max 100)</label>
+                <div id="grid-input-wrapper">
+                    <input id="userGridInput" placeholder="E.g.: 16 = 16 x 16 Grid" type="text">
+                    <button id="startBtn">Start</button>
+                </div>
             </div>
             <div class="etch-label-btn-wrapper">
                 <label for="">Click to Toggle <br>Black/Random Colors</label>
