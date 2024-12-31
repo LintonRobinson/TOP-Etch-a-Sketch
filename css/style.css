@@ -90,7 +90,7 @@ main {
 .etch-grid {
     flex: 1;
     /* border: solid green 2px; */
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .knob-wrapper {
