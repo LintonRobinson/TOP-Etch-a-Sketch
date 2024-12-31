@@ -11,6 +11,13 @@ const startBtn = document.querySelector('#startBtn');
 
 let mostRecentGridSize = 16
 
+// Etch Grid
+let etchGridOpacity
+
+// Progressive Darkening Button 
+const progressiveDarkeningButton = document.querySelector('#progressiveDarkening');
+
+
 // Default Grid Rows (16)
 function defaultGrid() {
     for (i=1;i <= 16;i++) {
@@ -31,11 +38,25 @@ function defaultGrid() {
     });
     
     // Mouse Hover Changes Grid Background (Black)
-    let generatedEtchGrid = document.querySelectorAll('.etch-grid')
+    addBlackGridColorListeners()
+    
+
+
+};
+
+function progressiveDarkening() {
+    
+    const generatedEtchGrid = document.querySelectorAll('.etch-grid');
+    // Add Progressive Darkening Class
     generatedEtchGrid.forEach(element => {
+        element.classList.add('progressiveDarkening')
+    });
+    generatedEtchGrid.forEach(element => {
+        let updateGridOpacity = Number(element.getAttribute('opacity'));
         element.addEventListener('mouseover', () => {
-            element.style.backgroundColor = "Black";
-        })
+            updateGridOpacity += 0.1
+            element.style.opacity = updateGridOpacity  
+        });
     });
 };
 
@@ -56,10 +77,21 @@ function mostRecentGrid() {
             element.appendChild(etchGrid);
         };
     });
+    if (progressiveDarkeningButton.classList.contains('progressiveDarkeningOn')) {
+        progressiveDarkening();
+    } else {
+        addBlackGridColorListeners(); 
+    }
 };
 
 
+/////////////////////// 
+
+
+
+
 defaultGrid()
+
 
 
  
@@ -90,6 +122,10 @@ function createUserGrid() {
          };
      });
     // Mouse Hover Changes Grid Background
+    if (progressiveDarkeningButton.classList.contains('progressiveDarkeningToOff')) {
+        progressiveDarkening();
+    }
+    
     if (colorToggleButton.classList.contains('toRandomColor')) {
         addBlackGridColorListeners();
         
@@ -119,7 +155,7 @@ startBtn.addEventListener('click' , () => {
 // Clear Grid Background Color(s)
 function clearGrid() {
     removeDefaultGrid();
-    mostRecentGrid()
+    // mostRecentGrid()
 };
 
 
@@ -138,16 +174,20 @@ function generateRandomColor() {
     return randomColor;
 };
 
+// Toggle Random Colors
 colorToggleButton.addEventListener('click' , () => {
     
     if (colorToggleButton.classList.contains('toRandomColor')) {
         clearGrid();
+        mostRecentGrid()
         addRandomGridColorListeners();
+        
         colorToggleButton.classList.add('toBlack');
         colorToggleButton.classList.remove('toRandomColor');
         colorToggleButton.textContent = "To Black"
     } else {
         clearGrid();
+        mostRecentGrid()
         addBlackGridColorListeners();
         colorToggleButton.classList.add('toRandomColor');
         colorToggleButton.classList.remove('toBlack');
@@ -155,6 +195,33 @@ colorToggleButton.addEventListener('click' , () => {
     };
 })
 
+// Toggle Progressive Darkening 
+progressiveDarkeningButton.addEventListener('click' , () => {
+    clearGrid();
+    if (progressiveDarkeningButton.classList.contains('progressiveDarkeningToOn')) {
+        progressiveDarkening();
+        progressiveDarkeningButton.classList.remove('progressiveDarkeningToOn')
+        progressiveDarkeningButton.classList.remove('progressiveDarkeningOff')
+        progressiveDarkeningButton.classList.add('progressiveDarkeningToOff')
+        progressiveDarkeningButton.classList.add('progressiveDarkeningOn')
+        progressiveDarkeningButton.textContent = "On"
+    } else {
+        progressiveDarkeningButton.classList.remove('progressiveDarkeningToOff')
+        progressiveDarkeningButton.classList.remove('progressiveDarkeningOn')
+        progressiveDarkeningButton.classList.add('progressiveDarkeningOff')
+        progressiveDarkeningButton.classList.add('progressiveDarkeningToOn')
+        progressiveDarkeningButton.textContent = "Off"
+    }
+    mostRecentGrid()
+    if (colorToggleButton.classList.contains('toRandomColor')) {
+        addBlackGridColorListeners();
+    } else {
+        addRandomGridColorListeners();
+    };
+
+    
+
+});
 
 function addBlackGridColorListeners() {
     const generatedEtchGrid = document.querySelectorAll('.etch-grid');
@@ -175,4 +242,22 @@ function addRandomGridColorListeners() {
 };
 
 
+
+// Reset Grid 
+
+const resetGrid = document.querySelector('#resetGrid')
+
+resetGrid.addEventListener('click' , ()=> {
+    clearGrid()
+    mostRecentGrid()
+    if (colorToggleButton.classList.contains('toRandomColor')) {
+        addBlackGridColorListeners();
+    } else {
+        addRandomGridColorListeners();
+    };
+    if (progressiveDarkeningButton.classList.contains('progressiveDarkeningToOff')) {
+        progressiveDarkening();
+    }
+
+});
 

@@ -89,8 +89,13 @@ main {
 
 .etch-grid {
     flex: 1;
-    /* border: solid green 2px; */
+    
+    border: solid rgba(178, 178, 178, 0.145) 0.1px; 
     transition: 0.5s;
+}
+
+.progressiveDarkening {
+    opacity: 0.5;
 }
 
 .knob-wrapper {
