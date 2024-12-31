@@ -90,12 +90,13 @@ function createUserGrid() {
          };
      });
     // Mouse Hover Changes Grid Background
-    const generatedEtchGrid = document.querySelectorAll('.etch-grid');
-    generatedEtchGrid.forEach(element => {
-        element.addEventListener('mouseover', () => {
-            element.style.backgroundColor = "Black"
-        })
-    });
+    if (colorToggleButton.classList.contains('toRandomColor')) {
+        addBlackGridColorListeners();
+        
+    } else {
+        addRandomGridColorListeners();
+    };
+    
 
 };
 
